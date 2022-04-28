@@ -20,6 +20,7 @@
 		8E6FBE672812A6FD00977589 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE662812A6FD00977589 /* VideoPlayerViewController.swift */; };
 		8E6FBE6A2812A71800977589 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE692812A71800977589 /* NewConversationViewController.swift */; };
 		8E6FBE6C2812A72300977589 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE6B2812A72300977589 /* ProfileViewController.swift */; };
+		8E902AE4281A46250019EA86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E902AE3281A46250019EA86 /* GoogleService-Info.plist */; };
 		9A47DC90E21957C9E814571D /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8EA1075E7B29E78EEDEEE2 /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		8E6FBE662812A6FD00977589 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		8E6FBE692812A71800977589 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		8E6FBE6B2812A72300977589 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8E902AE3281A46250019EA86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/nadheer/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,6 @@
 				40B582B3B82A96BD12079552 /* Pods-Messenger.debug.xcconfig */,
 				7179E082267EE223A6FB182B /* Pods-Messenger.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -104,6 +105,7 @@
 		8E6FBE462812A5BE00977589 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				8E902AE3281A46250019EA86 /* GoogleService-Info.plist */,
 				8E6FBE502812A5C000977589 /* Assets.xcassets */,
 				8E6FBE5F2812A5E400977589 /* Controllers */,
 				8E6FBE552812A5C000977589 /* Info.plist */,
@@ -222,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E6FBE542812A5C000977589 /* LaunchScreen.storyboard in Resources */,
+				8E902AE4281A46250019EA86 /* GoogleService-Info.plist in Resources */,
 				8E6FBE512812A5C000977589 /* Assets.xcassets in Resources */,
 				8E6FBE4F2812A5BF00977589 /* Main.storyboard in Resources */,
 			);
