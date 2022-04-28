@@ -10,7 +10,7 @@ import FirebaseAuth
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
-
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
@@ -68,13 +68,14 @@ class LoginViewController: UIViewController {
     
     private let facebookButton: FBLoginButton = {
         let button = FBLoginButton()
+        button.permissions = ["public_profile", "email"]
         return button
     }()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = "Log in"
         view.backgroundColor = .white
         
@@ -84,6 +85,7 @@ class LoginViewController: UIViewController {
         
         emailField.delegate = self
         passwordField.delegate = self
+        facebookButton.delegate = self
         
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
@@ -106,7 +108,6 @@ class LoginViewController: UIViewController {
         
         loginButton.frame = CGRect(x: 30, y: passwordField.bottom+10, width: scrollView.width-60, height: 52)
         
-        facebookButton.center = scrollView.center
         facebookButton.frame = CGRect(x: 30, y: loginButton.bottom+20, width: scrollView.width-60, height: 52)
     }
     
@@ -159,5 +160,70 @@ extension LoginViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+extension LoginViewController: LoginButtonDelegate {
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {}
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        
+        guard let token = result?.token?.tokenString else {
+            print("User failed to login with Facebook")
+            return
+        }
+        
+        let fbRequest = FBSDKLoginKit.GraphRequest(graphPath: "me",
+                                                   parameters: ["fields": "email, name"],
+                                                   tokenString: token,
+                                                   version: nil,
+                                                   httpMethod: .get)
+        
+        fbRequest.start(completion: { _, result, error in
+            
+            guard let result = result as? [String: Any], error == nil else {
+                print("Failed to make a Facebook graph request")
+                return
+            }
+            
+            print("\(result)")
+            guard let userName = result["name"] as? String, let email = result["email"] as? String else {
+                print("Failed to get name and email from Facebook")
+                return
+            }
+            
+            let nameComponents = userName.components(separatedBy: " ")
+            guard nameComponents.count == 2 else {
+                return
+            }
+            
+            let firstName = nameComponents[0]
+            let lastName = nameComponents[1]
+            
+            DatabaseManager.shared.userExist(with: email, completion: { exist in
+                if !exist {
+                    DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
+                                                                        lastName: lastName,
+                                                                        emailAddress: email))
+                }
+            })
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: token)
+            
+            FirebaseAuth.Auth.auth().signIn(with: credential, completion: { [weak self] authResult, error in
+                
+                guard let self = self else { return }
+                
+                guard authResult != nil, error == nil else {
+                    print("Failed login user with Facebook, error :\(String(describing: error))")
+                    return
+                }
+                
+                print("Logged in user")
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            
+        })
     }
 }
