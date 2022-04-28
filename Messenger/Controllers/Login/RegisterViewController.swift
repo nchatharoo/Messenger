@@ -79,7 +79,7 @@ class RegisterViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -155,28 +155,38 @@ class RegisterViewController: UIViewController {
         passwordField.resignFirstResponder()
 
         guard let firstName = firstNameField.text, let lastName = lastNameField.text,  let email = emailField.text, let password = passwordField.text, !firstName.isEmpty, !lastName.isEmpty, !email.isEmpty, !password.isEmpty, password.count >= 6 else {
-            alertLoginError()
             return
         }
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
-            guard let result = authResult, error == nil else {
-                print("Error creating user")
+        DatabaseManager.shared.userExist(with: email) { [weak self] exist in
+            guard let self = self else { return }
+
+            guard !exist else {
+                self.alertLoginError(message: "Looks like a user account for that email already exists.")
                 return
             }
             
-            let user = result.user
-            print("Created user\(user)")
-            
-        })
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+
+                guard authResult != nil, error == nil else {
+                    print("Error creating user")
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            })
+        }
     }
     
     @objc private func didTapChangeProfilePic() {
         presentPhotoActionSheet()
     }
     
-    func alertLoginError() {
-        let alert = UIAlertController(title: "Woops", message: "Please enter your information to log in.", preferredStyle: .alert)
+    func alertLoginError(message: String) {
+        let alert = UIAlertController(title: "Woops",
+                                      message: message,
+                                      preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(alert, animated: true)
     }

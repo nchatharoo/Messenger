@@ -21,6 +21,7 @@
 		8E6FBE6A2812A71800977589 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE692812A71800977589 /* NewConversationViewController.swift */; };
 		8E6FBE6C2812A72300977589 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE6B2812A72300977589 /* ProfileViewController.swift */; };
 		8E902AE4281A46250019EA86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E902AE3281A46250019EA86 /* GoogleService-Info.plist */; };
+		8E902AE6281A74D50019EA86 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E902AE5281A74D50019EA86 /* DatabaseManager.swift */; };
 		9A47DC90E21957C9E814571D /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8EA1075E7B29E78EEDEEE2 /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		8E6FBE692812A71800977589 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		8E6FBE6B2812A72300977589 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8E902AE3281A46250019EA86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/nadheer/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8E902AE5281A74D50019EA86 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				8E6FBE472812A5BF00977589 /* AppDelegate.swift */,
 				8E6FBE492812A5BF00977589 /* SceneDelegate.swift */,
 				8E5DD34A28182B9F00CA2163 /* Extensions.swift */,
+				8E902AE5281A74D50019EA86 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E6FBE612812A6C000977589 /* LoginViewController.swift in Sources */,
+				8E902AE6281A74D50019EA86 /* DatabaseManager.swift in Sources */,
 				8E6FBE632812A6D100977589 /* RegisterViewController.swift in Sources */,
 				8E6FBE6A2812A71800977589 /* NewConversationViewController.swift in Sources */,
 				8E6FBE4C2812A5BF00977589 /* ConversationsViewController.swift in Sources */,
