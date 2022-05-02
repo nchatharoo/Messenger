@@ -1059,3 +1059,81 @@ Pods/Target Support Files/FBSDKLoginKit/FBSDKLoginKit-xcframeworks-output-files.
 Pods/Target Support Files/FBSDKLoginKit/FBSDKLoginKit-xcframeworks.sh
 Pods/Target Support Files/FBSDKLoginKit/FBSDKLoginKit.debug.xcconfig
 Pods/Target Support Files/FBSDKLoginKit/FBSDKLoginKit.release.xcconfig
+Pods/GoogleSignIn/.cocoapods.yml
+Pods/GoogleSignIn/CHANGELOG.md
+Pods/GoogleSignIn/README.md
+Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/GoogleSignIn
+Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDAuthentication.h
+Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDGoogleUser.h
+Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDProfileData.h
+Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDSignIn.h
+Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDSignInButton.h
+Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GoogleSignIn.h
+Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Modules/module.modulemap
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/google.png
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/google@2x.png
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/google@3x.png
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/Info.plist
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/Roboto-Bold.ttf
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/ar.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/ca.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/cs.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/da.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/de.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/el.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/en.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/en_GB.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/es.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/es_MX.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/fi.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/fr.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/fr_CA.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/he.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/hi.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/hr.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/hu.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/id.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/it.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/ja.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/ko.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/ms.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/nb.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/nl.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/pl.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/pt.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/pt_BR.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/pt_PT.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/ro.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/ru.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/sk.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/sv.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/th.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/tr.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/uk.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/vi.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/zh_CN.lproj/GoogleSignIn.strings
+Pods/GoogleSignIn/Resources/GoogleSignIn.bundle/zh_TW.lproj/GoogleSignIn.strings
+Pods/GoogleToolboxForMac/GTMDefines.h
+Pods/GoogleToolboxForMac/LICENSE
+Pods/GoogleToolboxForMac/README.md
+Pods/GoogleToolboxForMac/DebugUtils/GTMDebugSelectorValidation.h
+Pods/GoogleToolboxForMac/DebugUtils/GTMDebugThreadValidation.h
+Pods/GoogleToolboxForMac/DebugUtils/GTMMethodCheck.h
+Pods/GoogleToolboxForMac/Foundation/GTMNSDictionary+URLArguments.h
+Pods/GoogleToolboxForMac/Foundation/GTMNSDictionary+URLArguments.m
+Pods/GoogleToolboxForMac/Foundation/GTMNSString+URLArguments.h
+Pods/GoogleToolboxForMac/Foundation/GTMNSString+URLArguments.m
+Pods/Target Support Files/GoogleSignIn/GoogleSignIn.debug.xcconfig
+Pods/Target Support Files/GoogleSignIn/GoogleSignIn.release.xcconfig
+Pods/Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-dummy.m
+Pods/Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-Info.plist
+Pods/Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch
+Pods/Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-umbrella.h
+Pods/Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.debug.xcconfig
+Pods/Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap
+Pods/Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.release.xcconfig
+Pods/Target Support Files/Pods-Messenger/Pods-Messenger-resources-Debug-input-files.xcfilelist
+Pods/Target Support Files/Pods-Messenger/Pods-Messenger-resources-Debug-output-files.xcfilelist
+Pods/Target Support Files/Pods-Messenger/Pods-Messenger-resources-Release-input-files.xcfilelist
+Pods/Target Support Files/Pods-Messenger/Pods-Messenger-resources-Release-output-files.xcfilelist
+Pods/Target Support Files/Pods-Messenger/Pods-Messenger-resources.sh
