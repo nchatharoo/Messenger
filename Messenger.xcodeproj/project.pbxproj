@@ -178,6 +178,7 @@
 				8E6FBE412812A5BE00977589 /* Frameworks */,
 				8E6FBE422812A5BE00977589 /* Resources */,
 				B829B006933684158377E1F8 /* [CP] Embed Pods Frameworks */,
+				BE5BDF7963BDE01B374285FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,6 +252,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Messenger/Pods-Messenger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE5BDF7963BDE01B374285FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Messenger/Pods-Messenger-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Messenger/Pods-Messenger-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Messenger/Pods-Messenger-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4692B28D057B776B60B0CA5 /* [CP] Check Pods Manifest.lock */ = {
@@ -475,6 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P9CD4D4F5T;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow access to select a photo for profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
