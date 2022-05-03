@@ -20,6 +20,7 @@
 		8E6FBE672812A6FD00977589 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE662812A6FD00977589 /* VideoPlayerViewController.swift */; };
 		8E6FBE6A2812A71800977589 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE692812A71800977589 /* NewConversationViewController.swift */; };
 		8E6FBE6C2812A72300977589 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE6B2812A72300977589 /* ProfileViewController.swift */; };
+		8E8D85E02821667A00417BB5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D85DF2821667A00417BB5 /* ChatViewController.swift */; };
 		8E902AE4281A46250019EA86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E902AE3281A46250019EA86 /* GoogleService-Info.plist */; };
 		8E902AE6281A74D50019EA86 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E902AE5281A74D50019EA86 /* DatabaseManager.swift */; };
 		9A47DC90E21957C9E814571D /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8EA1075E7B29E78EEDEEE2 /* Pods_Messenger.framework */; };
@@ -44,6 +45,7 @@
 		8E6FBE662812A6FD00977589 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		8E6FBE692812A71800977589 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		8E6FBE6B2812A72300977589 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8E8D85DF2821667A00417BB5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8E902AE3281A46250019EA86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/nadheer/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E902AE5281A74D50019EA86 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +164,7 @@
 				8E6FBE662812A6FD00977589 /* VideoPlayerViewController.swift */,
 				8E6FBE692812A71800977589 /* NewConversationViewController.swift */,
 				8E6FBE6B2812A72300977589 /* ProfileViewController.swift */,
+				8E8D85DF2821667A00417BB5 /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				8E6FBE482812A5BF00977589 /* AppDelegate.swift in Sources */,
 				8E6FBE6C2812A72300977589 /* ProfileViewController.swift in Sources */,
 				8E6FBE4A2812A5BF00977589 /* SceneDelegate.swift in Sources */,
+				8E8D85E02821667A00417BB5 /* ChatViewController.swift in Sources */,
 				8E6FBE652812A6EF00977589 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
