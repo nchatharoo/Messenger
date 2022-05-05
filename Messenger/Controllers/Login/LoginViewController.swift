@@ -32,7 +32,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         field.placeholder = "Email Address..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
-        field.backgroundColor = .white
         return field
     }()
     
@@ -47,7 +46,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         field.placeholder = "Password..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
-        field.backgroundColor = .white
         field.isSecureTextEntry = true
         return field
     }()
