@@ -164,6 +164,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
             
             let user = result.user
+            UserDefaults.standard.set(email, forKey: "email")
             print("Logged in user\(user)")
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
@@ -233,7 +234,9 @@ extension LoginViewController: LoginButtonDelegate {
                 print("Failed to get user from Facebook")
                 return
             }
-                                
+                  
+            UserDefaults.standard.set(email, forKey: "email")
+            
             DatabaseManager.shared.userExist(with: email, completion: { exist in
                 if !exist {
                     let chatUser = ChatAppUser(firstName: firstName,
