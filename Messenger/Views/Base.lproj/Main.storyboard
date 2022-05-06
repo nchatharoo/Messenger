@@ -8,13 +8,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chat-->
+        <!--Chats-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController title="Chat" id="BYZ-38-t0r" customClass="ConversationsViewController" customModule="Messenger" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="sxI-qu-YwM"/>
+                <viewController title="Chats" id="BYZ-38-t0r" customClass="ConversationsViewController" customModule="Messenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Chats" id="sxI-qu-YwM"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1484" y="796"/>
         </scene>
@@ -22,7 +22,9 @@
         <scene sceneID="fOg-ne-bU8">
             <objects>
                 <navigationController title="Chat" automaticallyAdjustsScrollViewInsets="NO" id="RWk-Y6-Sbg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" id="e1U-Mm-rP1"/>
+                    <tabBarItem key="tabBarItem" title="Chat" id="e1U-Mm-rP1">
+                        <color key="badgeColor" systemColor="systemBackgroundColor"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="mmE-hu-0d9">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -44,7 +46,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wHS-PB-rcz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="RWk-Y6-Sbg" kind="relationship" relationship="viewControllers" id="YN3-Th-hdG"/>
@@ -94,7 +95,7 @@
                             <constraint firstItem="kkA-YH-9yD" firstAttribute="top" secondItem="y5n-EP-ogu" secondAttribute="top" id="zOp-ee-VqT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="q3Q-L3-yq3"/>
+                    <navigationItem key="navigationItem" title="Profile" id="q3Q-L3-yq3"/>
                     <connections>
                         <outlet property="tableView" destination="kkA-YH-9yD" id="HlQ-oF-HuF"/>
                     </connections>
