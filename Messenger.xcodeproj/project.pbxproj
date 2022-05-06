@@ -471,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P9CD4D4F5T;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow access to select a photo for profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -501,7 +502,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P9CD4D4F5T;
-				EXCLUDED_ARCHS = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow access to select a photo for profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
