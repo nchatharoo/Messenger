@@ -62,7 +62,8 @@ class ChatViewController: MessagesViewController {
     
     public var isNewConversation = false
     public let otherUSerEmail: String
-
+    public let conversationID: String?
+    
     private var messages = [Message]()
     
     private lazy var selfSender: Sender? = {
@@ -74,8 +75,9 @@ class ChatViewController: MessagesViewController {
         return sender
     }()
     
-    init(with email: String) {
+    init(with email: String, id: String?) {
         self.otherUSerEmail = email
+        self.conversationID = id
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -90,11 +92,17 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
+        
+        listenForMessages()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         messageInputBar.inputTextView.becomeFirstResponder()
+    }
+    
+    private func listenForMessages() {
+        
     }
 }
 
@@ -111,7 +119,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 sentDate: Date(),
                 kind: .text(text))
             
-            DatabaseManager.shared.createNewConversations(with: otherUSerEmail, firstMessage: message, completion: { [weak self] success in
+            DatabaseManager.shared.createNewConversations(with: otherUSerEmail, name: self.title ?? "user", firstMessage: message, completion: { [weak self] success in
                 if success {
                     
                 } else {
