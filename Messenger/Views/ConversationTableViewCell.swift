@@ -29,7 +29,7 @@ class ConversationTableViewCell: UITableViewCell {
     
     private let userMessageLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.font = .systemFont(ofSize: 19, weight: .regular)
         label.numberOfLines = 0
         return label
     }()

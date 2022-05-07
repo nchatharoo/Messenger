@@ -62,17 +62,17 @@ class ChatViewController: MessagesViewController {
     
     public var isNewConversation = false
     public let otherUSerEmail: String
-    public let conversationID: String?
+    private let conversationID: String?
     
     private var messages = [Message]()
     
     private lazy var selfSender: Sender? = {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else { return nil }
-        let sender = Sender(photoURL: "",
-                            senderId: email,
-                            displayName: "Joe Smith")
         
-        return sender
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        return Sender(photoURL: "",
+                      senderId: safeEmail,
+                      displayName: "Me")
     }()
     
     init(with email: String, id: String?) {
@@ -92,17 +92,36 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
-        
-        listenForMessages()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         messageInputBar.inputTextView.becomeFirstResponder()
+        if let conversationID = conversationID {
+            listenForMessages(id: conversationID, shouldScrollToBottom: true)
+        }
     }
     
-    private func listenForMessages() {
-        
+    private func listenForMessages(id: String, shouldScrollToBottom: Bool) {
+        DatabaseManager.shared.getAllMessagesForConversation(with: id, completion: { [weak self] result in
+            switch result {
+            case .success(let messages):
+                guard !messages.isEmpty else { return }
+                
+                self?.messages = messages
+                
+                DispatchQueue.main.async {
+                    self?.messagesCollectionView.reloadDataAndKeepOffset()
+                    
+                    if shouldScrollToBottom {
+                        self?.messagesCollectionView.scrollToBottom()
+                    }
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 }
 
