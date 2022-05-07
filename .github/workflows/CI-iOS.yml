@@ -47,7 +47,11 @@ jobs:
       run: /usr/bin/xcodebuild -version
 
       
-
+    - name: Install cocoapods dependencies
+    
+      run: pod install
+      
+      
     - name: Build
 
-      run: xcodebuild clean build -project Messenger/Messenger.xcworkspace -scheme "Messenger" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=YES
+      run: xcodebuild clean build -workspace Messenger/Messenger.xcworkspace -scheme "Messenger" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=YES
