@@ -104,3 +104,5 @@ iOSInjectionProject/
 Messenger/Controllers/._ChatViewController.swift
 Messenger/Resources/._DatabaseManager.swift
 Messenger/Resources/._StorageManager.swift
+Messenger/Model/._ChatAppUser.swift
+Messenger/Views/._ConversationTableViewCell.swift
