@@ -2,7 +2,6 @@
 platform :ios, '11.0'
 
 target 'Messenger' do
-  project '/Volumes/Externe/Messenger/Messenger.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   

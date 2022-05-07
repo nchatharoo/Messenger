@@ -16,7 +16,7 @@ jobs:
 
   # This workflow contains a single job called "build"
 
-  build-and-test:
+  build-and-run:
 
     # The type of runner that the job will run on
 
@@ -49,6 +49,7 @@ jobs:
       
     - name: Install cocoapods dependencies
     
+      working-directory: ./Messenger
       run: pod install
       
       
