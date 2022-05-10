@@ -73,7 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         guard let email = user.profile.email, let firstName = user.profile.givenName, let lastName = user.profile.familyName else { return }
         
         UserDefaults.standard.set(email, forKey: "email")
-        
+        UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+
         DatabaseManager.shared.userExist(with: email, completion: { exists in
             if !exists {
                 let chatUser = ChatAppUser(firstName: firstName,

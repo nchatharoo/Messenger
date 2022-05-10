@@ -14,7 +14,7 @@ struct Conversation {
     let id: String
     let name: String
     let otherUSerEmail: String
-    let latestMEssage: LatestMessage
+    let latestMessage: LatestMessage
 }
 
 struct LatestMessage {

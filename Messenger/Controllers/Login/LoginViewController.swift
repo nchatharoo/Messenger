@@ -162,7 +162,24 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
             
             let user = result.user
+            
+            let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+            DatabaseManager.shared.getDataFor(path: safeEmail, completion: { result in
+                switch result {
+                case .success(let data):
+                    guard let userData = data as? [String: Any],
+                          let firstName = userData["first_Name"] as? String,
+                          let lastName = userData["last_Name"] as? String else {
+                        return
+                    }
+                    UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+                case .failure(let error):
+                    print((error))
+                }
+            })
+            
             UserDefaults.standard.set(email, forKey: "email")
+
             print("Logged in user\(user)")
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
@@ -234,7 +251,8 @@ extension LoginViewController: LoginButtonDelegate {
             }
                   
             UserDefaults.standard.set(email, forKey: "email")
-            
+            UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+
             DatabaseManager.shared.userExist(with: email, completion: { exist in
                 if !exist {
                     let chatUser = ChatAppUser(firstName: firstName,
