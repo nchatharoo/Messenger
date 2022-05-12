@@ -20,9 +20,9 @@
 		8E6FBE672812A6FD00977589 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE662812A6FD00977589 /* VideoPlayerViewController.swift */; };
 		8E6FBE6A2812A71800977589 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE692812A71800977589 /* NewConversationViewController.swift */; };
 		8E6FBE6C2812A72300977589 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE6B2812A72300977589 /* ProfileViewController.swift */; };
+		8E7D9FD7282CDDF600DE5BF4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7D9FD6282CDDF600DE5BF4 /* GoogleService-Info.plist */; };
 		8E8D85E02821667A00417BB5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D85DF2821667A00417BB5 /* ChatViewController.swift */; };
 		8E9020DC2822B89E006F3E65 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9020DB2822B89E006F3E65 /* StorageManager.swift */; };
-		8E902AE4281A46250019EA86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E902AE3281A46250019EA86 /* GoogleService-Info.plist */; };
 		8E902AE6281A74D50019EA86 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E902AE5281A74D50019EA86 /* DatabaseManager.swift */; };
 		8EADE3AE28255F9400A1E052 /* ChatAppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EADE3AD28255F9400A1E052 /* ChatAppUser.swift */; };
 		8EADE3B02825611B00A1E052 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EADE3AF2825611B00A1E052 /* ConversationTableViewCell.swift */; };
@@ -48,9 +48,9 @@
 		8E6FBE662812A6FD00977589 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		8E6FBE692812A71800977589 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		8E6FBE6B2812A72300977589 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8E7D9FD6282CDDF600DE5BF4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E8D85DF2821667A00417BB5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8E9020DB2822B89E006F3E65 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		8E902AE3281A46250019EA86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/nadheer/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E902AE5281A74D50019EA86 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		8EADE3AD28255F9400A1E052 /* ChatAppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppUser.swift; sourceTree = "<group>"; };
 		8EADE3AF2825611B00A1E052 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		8E6FBE462812A5BE00977589 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
-				8E902AE3281A46250019EA86 /* GoogleService-Info.plist */,
+				8E7D9FD6282CDDF600DE5BF4 /* GoogleService-Info.plist */,
 				8E6FBE502812A5C000977589 /* Assets.xcassets */,
 				8E6FBE5F2812A5E400977589 /* Controllers */,
 				8E6FBE552812A5C000977589 /* Info.plist */,
@@ -240,7 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E6FBE542812A5C000977589 /* LaunchScreen.storyboard in Resources */,
-				8E902AE4281A46250019EA86 /* GoogleService-Info.plist in Resources */,
+				8E7D9FD7282CDDF600DE5BF4 /* GoogleService-Info.plist in Resources */,
 				8E6FBE512812A5C000977589 /* Assets.xcassets in Resources */,
 				8E6FBE4F2812A5BF00977589 /* Main.storyboard in Resources */,
 			);
