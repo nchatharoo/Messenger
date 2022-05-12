@@ -50,4 +50,24 @@ final class StorageManager {
             completion(.success(url))
         })
     }
+    
+    /// Upload image send to a conversation message
+    public func uploadMessagePhoto(with data: Data, fileName: String, completion: @escaping UploadPictureCompletion) {
+        storage.child("message_images/\(fileName)").putData(data, metadata: nil, completion: { metadata, error in
+            guard error == nil else {
+                completion(.failure(StorageError.failedToUpload))
+                return
+            }
+            
+            self.storage.child("message_images/\(fileName)").downloadURL(completion: { url, error in
+                guard let url = url else {
+                    completion(.failure(StorageError.failedToGetDownloadURL))
+                    return
+                }
+                
+                let urlString = url.absoluteString
+                completion(.success(urlString))
+            })
+        })
+    }
 }
