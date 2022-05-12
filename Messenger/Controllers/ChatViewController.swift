@@ -61,7 +61,7 @@ class ChatViewController: MessagesViewController {
     }()
     
     public var isNewConversation = false
-    public let otherUSerEmail: String
+    public let otherUserEmail: String
     private let conversationID: String?
     
     private var messages = [Message]()
@@ -76,7 +76,7 @@ class ChatViewController: MessagesViewController {
     }()
     
     init(with email: String, id: String?) {
-        self.otherUSerEmail = email
+        self.otherUserEmail = email
         self.conversationID = id
         super.init(nibName: nil, bundle: nil)
     }
@@ -138,7 +138,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         
         if isNewConversation {
-            DatabaseManager.shared.createNewConversations(with: otherUSerEmail, name: self.title ?? "user", firstMessage: message, completion: { [weak self] success in
+            DatabaseManager.shared.createNewConversations(with: otherUserEmail, name: self.title ?? "user", firstMessage: message, completion: { [weak self] success in
                 if success {
                     self?.isNewConversation = false
                 } else {
@@ -148,7 +148,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         } else {
             guard let conversationID = conversationID, let name = self.title else { return }
             
-            DatabaseManager.shared.sendMessage(to: conversationID, otherUSerEmail: otherUSerEmail, name: name, newMessage: message, completion: { success in
+            DatabaseManager.shared.sendMessage(to: conversationID, otherUserEmail: otherUserEmail, name: name, newMessage: message, completion: { success in
                 if success {
                     print("message sent")
                 } else {
@@ -163,7 +163,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String else { return nil }
         let safeEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
         let dateString = Self.dateFormatter.string(from: Date())
-        let newIdentifier = "\(otherUSerEmail)_\(safeEmail)_\(dateString)"
+        let newIdentifier = "\(otherUserEmail)_\(safeEmail)_\(dateString)"
         return newIdentifier
     }
 }
