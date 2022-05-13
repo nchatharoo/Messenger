@@ -53,13 +53,33 @@ final class StorageManager {
     
     /// Upload image send to a conversation message
     public func uploadMessagePhoto(with data: Data, fileName: String, completion: @escaping UploadPictureCompletion) {
-        storage.child("message_images/\(fileName)").putData(data, metadata: nil, completion: { metadata, error in
+        storage.child("message_images/\(fileName)").putData(data, metadata: nil, completion: { [weak self] metadata, error in
             guard error == nil else {
                 completion(.failure(StorageError.failedToUpload))
                 return
             }
             
-            self.storage.child("message_images/\(fileName)").downloadURL(completion: { url, error in
+            self?.storage.child("message_images/\(fileName)").downloadURL(completion: { url, error in
+                guard let url = url else {
+                    completion(.failure(StorageError.failedToGetDownloadURL))
+                    return
+                }
+                
+                let urlString = url.absoluteString
+                completion(.success(urlString))
+            })
+        })
+    }
+    
+    /// Upload video send to a conversation message
+    public func uploadMessageVideo(with fileURL: URL, fileName: String, completion: @escaping UploadPictureCompletion) {
+        storage.child("message_videos/\(fileName)").putFile(from: fileURL, metadata: nil, completion: { [weak self] metadata, error in
+            guard error == nil else {
+                completion(.failure(StorageError.failedToUpload))
+                return
+            }
+            
+            self?.storage.child("message_videos/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
                     completion(.failure(StorageError.failedToGetDownloadURL))
                     return
