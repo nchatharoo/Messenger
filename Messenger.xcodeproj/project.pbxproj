@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E5DD34B28182B9F00CA2163 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DD34A28182B9F00CA2163 /* Extensions.swift */; };
+		8E641C04282E4D4600641C97 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E641C03282E4D4500641C97 /* NewConversationCell.swift */; };
 		8E6FBE482812A5BF00977589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE472812A5BF00977589 /* AppDelegate.swift */; };
 		8E6FBE4A2812A5BF00977589 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE492812A5BF00977589 /* SceneDelegate.swift */; };
 		8E6FBE4C2812A5BF00977589 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FBE4B2812A5BF00977589 /* ConversationsViewController.swift */; };
@@ -34,6 +35,7 @@
 		40B582B3B82A96BD12079552 /* Pods-Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.debug.xcconfig"; path = "Target Support Files/Pods-Messenger/Pods-Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 		7179E082267EE223A6FB182B /* Pods-Messenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.release.xcconfig"; path = "Target Support Files/Pods-Messenger/Pods-Messenger.release.xcconfig"; sourceTree = "<group>"; };
 		8E5DD34A28182B9F00CA2163 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8E641C03282E4D4500641C97 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		8E6FBE442812A5BE00977589 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E6FBE472812A5BF00977589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E6FBE492812A5BF00977589 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				8E6FBE522812A5C000977589 /* LaunchScreen.storyboard */,
 				8E6FBE4D2812A5BF00977589 /* Main.storyboard */,
 				8EADE3AF2825611B00A1E052 /* ConversationTableViewCell.swift */,
+				8E641C03282E4D4500641C97 /* NewConversationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				8E5DD34B28182B9F00CA2163 /* Extensions.swift in Sources */,
 				8E6FBE482812A5BF00977589 /* AppDelegate.swift in Sources */,
 				8E6FBE6C2812A72300977589 /* ProfileViewController.swift in Sources */,
+				8E641C04282E4D4600641C97 /* NewConversationCell.swift in Sources */,
 				8E6FBE4A2812A5BF00977589 /* SceneDelegate.swift in Sources */,
 				8EADE3AE28255F9400A1E052 /* ChatAppUser.swift in Sources */,
 				8E8D85E02821667A00417BB5 /* ChatViewController.swift in Sources */,
