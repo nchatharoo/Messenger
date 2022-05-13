@@ -10,12 +10,12 @@ import JGProgressHUD
 
 class NewConversationViewController: UIViewController {
 
-    public var completion: (([String: String]) -> Void)?
+    public var completion: ((SearchResult) -> Void)?
     
     private let  spinner = JGProgressHUD(style: .dark)
 
     private var users = [[String: String]]()
-    private var results = [[String: String]]()
+    private var results = [SearchResult]()
 
     private var hasFetched = false
     
@@ -28,7 +28,7 @@ class NewConversationViewController: UIViewController {
     private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(NewConversationCell.self, forCellReuseIdentifier: NewConversationCell.identifier)
         return table
     }()
     
@@ -116,14 +116,20 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         spinner.dismiss()
         
-        let results: [[String: String]] = self.users.filter({
+        let results: [SearchResult] = self.users.filter({
             guard let email = $0["email"], email != safeEmail else { return false }
             guard let name = $0["name"]?.lowercased() else {
                 return false
             }
             
             return name.hasPrefix(term.lowercased())
-        })
+        }).compactMap(({
+            guard let email = $0["email"],
+                  let name = $0["name"]?.lowercased() else {
+                      return nil
+                  }
+            return SearchResult(name: name, email: email)
+        }))
         
         self.results = results
         
@@ -148,8 +154,9 @@ extension NewConversationViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = results[indexPath.row]["name"]
+        let model = results[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewConversationCell.identifier, for: indexPath) as! NewConversationCell
+        cell.configure(with: model)
         return cell
     }
     
@@ -162,4 +169,13 @@ extension NewConversationViewController: UITableViewDataSource, UITableViewDeleg
             self?.completion?(targetUSerData)
         })
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+}
+
+struct SearchResult {
+    let name: String
+    let email: String
 }
