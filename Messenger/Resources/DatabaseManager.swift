@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseDatabase
 import MessageKit
+import MapKit
 
 final class DatabaseManager {
     static let shared = DatabaseManager()
@@ -355,16 +356,25 @@ extension DatabaseManager {
                     
                     let media = Media(url: urlImageURL, image: nil, placeholderImage: placeholder, size: CGSize(width: 300, height: 300))
                     kind = .photo(media)
+                    
                 } else if type == "video" {
                     guard let videoURL = URL(string: content),
                           let placeholder = UIImage(systemName: "play.square.fill") else { return nil }
                     
                     let media = Media(url: videoURL, image: nil, placeholderImage: placeholder, size: CGSize(width: 300, height: 300))
                     kind = .video(media)
+                    
+                } else if type == "location" {
+                    let locationComponents = content.components(separatedBy: ",")
+                    guard let latitude = Double(locationComponents[0]), let longitude = Double(locationComponents[1]) else {
+                        return nil
+                    }
+                    
+                    let location = Location(location: CLLocation(latitude: latitude, longitude: longitude), size: CGSize(width: 300, height: 300))
+                    kind = .location(location)
                 }
                 else {
                     kind = .text(content)
-
                 }
                 
                 guard let kind = kind else {
@@ -427,8 +437,9 @@ extension DatabaseManager {
                 if let targetURLString = mediaItem.url?.absoluteString {
                     message = targetURLString
                 }
-            case .location(_):
-                break
+            case .location(let locationData):
+                let location = locationData.location
+                message = "\(location.coordinate.latitude),\(location.coordinate.longitude)"                
             case .emoji(_):
                 break
             case .audio(_):
