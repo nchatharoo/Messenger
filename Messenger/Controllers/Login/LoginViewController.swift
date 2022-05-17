@@ -170,8 +170,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 switch result {
                 case .success(let data):
                     guard let userData = data as? [String: Any],
-                          let firstName = userData["first_Name"] as? String,
-                          let lastName = userData["last_Name"] as? String else {
+                          let firstName = userData["first_name"] as? String,
+                          let lastName = userData["last_name"] as? String else {
                         return
                     }
                     UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
