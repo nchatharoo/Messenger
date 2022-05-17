@@ -24,13 +24,13 @@ final class DatabaseManager {
 
 extension DatabaseManager {
     public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void) {
-        self.database.child("\(path)").observeSingleEvent(of: .value, with: { snapshot in
+        self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return
             }            
             completion(.success(value))
-        })
+        }
     }
 }
 
@@ -439,7 +439,7 @@ extension DatabaseManager {
                 }
             case .location(let locationData):
                 let location = locationData.location
-                message = "\(location.coordinate.latitude),\(location.coordinate.longitude)"                
+                message = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
             case .emoji(_):
                 break
             case .audio(_):
