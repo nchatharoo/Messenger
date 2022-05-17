@@ -33,14 +33,17 @@ class LocationPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        
         if isPickable {
+            self.navigationController?.navigationBar.isTranslucent = false;
+            self.tabBarController?.tabBar.isTranslucent = false;
+
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .done, target: self, action: #selector(sendButtonTapped))
             map.isUserInteractionEnabled = true
             let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapMap(_:)))
             gesture.numberOfTapsRequired = 1
             gesture.numberOfTouchesRequired = 1
             map.addGestureRecognizer(gesture)
-
 
         } else {
             guard let coordinates = self.coordinates else {
