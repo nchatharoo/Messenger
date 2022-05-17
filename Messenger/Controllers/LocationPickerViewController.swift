@@ -34,9 +34,10 @@ class LocationPickerViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
+        navigationController?.navigationBar.isTranslucent = false
+        tabBarController?.tabBar.isTranslucent = false
+
         if isPickable {
-            self.navigationController?.navigationBar.isTranslucent = false;
-            self.tabBarController?.tabBar.isTranslucent = false;
 
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .done, target: self, action: #selector(sendButtonTapped))
             map.isUserInteractionEnabled = true
