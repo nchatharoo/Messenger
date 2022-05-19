@@ -62,6 +62,13 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
     - nanopb (~> 2.30908.0)
+  - FirebaseCrashlytics (8.8.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
   - FirebaseDatabase (8.1.0):
     - FirebaseCore (~> 8.0)
     - leveldb-library (~> 1.22)
@@ -150,6 +157,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - FirebaseCrashlytics
   - GoogleSignIn
   - JGProgressHUD
   - MessageKit
@@ -167,6 +175,7 @@ SPEC REPOS:
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseDatabase
     - FirebaseInstallations
     - FirebaseStorage
@@ -196,6 +205,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: e069ff5736fe9d5dcf61f36244bb1b1ce1897d17
   FirebaseCore: 389c4ce9a7cce4a7e25eb22326b4bee0050557b2
   FirebaseCoreDiagnostics: 3e249cee3de5c5f9cfd6cc2a19997231286fec11
+  FirebaseCrashlytics: 3660c045c8e45cc4276110562a0ef44cf43c8157
   FirebaseDatabase: cc219dac8f37fe80f5838ed5ffd84ce3daa443ad
   FirebaseInstallations: 7f31798a8198c354eadcb87176d2090b62edc187
   FirebaseStorage: 5b5958efaf84fb991568ad36f157f60c76bdcd80
@@ -215,6 +225,6 @@ SPEC CHECKSUMS:
   RealmSwift: a0c30c1efc49e928a0a6f8fb141bb2629616d79b
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
 
-PODFILE CHECKSUM: 17f7bf18dc8a52720eb2d37a5358b6ffbffd3782
+PODFILE CHECKSUM: 2a87b64900b2efb765cc3068c4de8d7e5554cd77
 
 COCOAPODS: 1.10.1
