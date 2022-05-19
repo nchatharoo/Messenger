@@ -71,7 +71,7 @@ class ChatViewController: MessagesViewController {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .long
-        formatter.locale = .current
+        formatter.locale = Locale.init(identifier: "en_US")
         return formatter
     }()
     
@@ -175,9 +175,9 @@ class ChatViewController: MessagesViewController {
             
             DatabaseManager.shared.sendMessage(to: conversationID, otherUserEmail: self.otherUserEmail, name: name, newMessage: message, completion: { success in
                 if success {
-                    
+                    print("sent location")
                 } else {
-                    
+                    print("failed to sent location")
                 }
             })
 
