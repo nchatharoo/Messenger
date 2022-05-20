@@ -12,7 +12,7 @@ import SwiftUI
 
 final class ConversationsViewController: UIViewController {
     
-    private let  spinner = JGProgressHUD(style: .dark)
+    private let spinner = JGProgressHUD(style: .dark)
     
     private var conversations = [Conversation]()
     
@@ -37,6 +37,7 @@ final class ConversationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        spinner.show(in: view)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
         view.addSubview(tableView)
         view.addSubview(noConversation)
@@ -48,6 +49,7 @@ final class ConversationsViewController: UIViewController {
             
             self.startListeningForConversations()
         })
+        spinner.dismiss()
     }
     
     private func startListeningForConversations() {
