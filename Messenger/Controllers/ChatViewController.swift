@@ -75,6 +75,9 @@ class ChatViewController: MessagesViewController {
         return formatter
     }()
     
+    private var senderPhotoURL: URL?
+    private var otherUserPhoto: URL?
+    
     public var isNewConversation = false
     public let otherUserEmail: String
     private let conversationID: String?
@@ -102,7 +105,7 @@ class ChatViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -159,7 +162,7 @@ class ChatViewController: MessagesViewController {
                   let conversationID = self.conversationID,
                   let name = self.title,
                   let sender = self.selfSender else { return }
-
+            
             let latitude: Double = selectedCoordinates.latitude
             let longitude: Double = selectedCoordinates.longitude
             
@@ -180,7 +183,7 @@ class ChatViewController: MessagesViewController {
                     print("failed to sent location")
                 }
             })
-
+            
         }
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -207,7 +210,7 @@ class ChatViewController: MessagesViewController {
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true, completion: nil)
-
+        
     }
     
     private func presentVideoInputActionSheet() {
@@ -236,7 +239,7 @@ class ChatViewController: MessagesViewController {
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true, completion: nil)
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -279,9 +282,9 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let messageID = createMessageID(),
-                let conversationID = conversationID,
-                let name = self.title,
-                let sender = selfSender else { return }
+              let conversationID = conversationID,
+              let name = self.title,
+              let sender = selfSender else { return }
         
         if let image = info[.editedImage] as? UIImage, let imageData = image.pngData() {
             //        upload photo
@@ -311,13 +314,13 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                     print(error)
                 }
             })
-
+            
         } else if let videoURL = info[.mediaURL] as? URL {
             //        upload video
             //        send Message
-
+            
             let fileName = "video_message_" + messageID.replacingOccurrences(of: " ", with: "-") + ".mov"
-
+            
             StorageManager.shared.uploadMessageVideo(with: videoURL, fileName: fileName, completion: { [weak self] result in
                 guard let self = self else { return }
                 switch result {
@@ -431,6 +434,57 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
         return .secondarySystemBackground
     }
     
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        let sender = message.sender
+        
+        if sender.senderId == self.selfSender?.senderId {
+            if let currentUserImageURL = self.senderPhotoURL {
+                avatarView.sd_setImage(with: currentUserImageURL, completed: nil)
+            } else {
+                //fetch url
+                guard let email = UserDefaults.standard.value(forKey: "email") as? String else { return }
+                let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+                let path = "images/\(safeEmail)_profile_picture.png"
+                
+                StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+                    guard let self = self else { return }
+                    
+                    switch result {
+                    case .success(let url):
+                        self.senderPhotoURL = url
+                        DispatchQueue.main.async {
+                            avatarView.sd_setImage(with: url, completed: nil)
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
+            }
+        } else {
+            if let otherUserImageURL = self.otherUserPhoto {
+                avatarView.sd_setImage(with: otherUserImageURL, completed: nil)
+            } else {
+                //fetch url
+                let email = self.otherUserEmail
+                let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+                let path = "images/\(safeEmail)_profile_picture.png"
+                
+                StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+                    guard let self = self else { return }
+                    
+                    switch result {
+                    case .success(let url):
+                        self.otherUserPhoto = url
+                        DispatchQueue.main.async {
+                            avatarView.sd_setImage(with: url, completed: nil)
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
+            }
+        }
+    }
 }
 
 extension ChatViewController: MessageCellDelegate {
@@ -444,14 +498,14 @@ extension ChatViewController: MessageCellDelegate {
             
         case .photo(let media):
             guard let imageURL = media.url else { return }
-
+            
             let vc = PhotoViewerViewController(with: imageURL)
             
             self.navigationController?.pushViewController(vc, animated: true)
             
         case .video(let media):
             guard let videoURL = media.url else { return }
-
+            
             let vc = AVPlayerViewController()
             vc.player = AVPlayer(url: videoURL)
             vc.player?.play()
@@ -473,9 +527,9 @@ extension ChatViewController: MessageCellDelegate {
             let vc = LocationPickerViewController(coordinates: coordinates)
             vc.title = "Location"
             self.navigationController?.pushViewController(vc, animated: true)
-                        
+            
         default: break
         }
-
+        
     }
 }
