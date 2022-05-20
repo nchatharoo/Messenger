@@ -23,6 +23,9 @@ target 'Messenger' do
   pod 'RealmSwift'
   pod 'SDWebImage'
   
+  # Lottie
+  pod 'lottie-ios'
+  
 end
 
 post_install do |pi|

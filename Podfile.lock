@@ -134,6 +134,7 @@ PODS:
   - InputBarAccessoryView/Core (5.1.0)
   - JGProgressHUD (2.2)
   - leveldb-library (1.22.1)
+  - lottie-ios (3.3.0)
   - MessageKit (3.3.0):
     - InputBarAccessoryView (~> 5.1.0)
   - nanopb (2.30908.0):
@@ -160,6 +161,7 @@ DEPENDENCIES:
   - FirebaseCrashlytics
   - GoogleSignIn
   - JGProgressHUD
+  - lottie-ios
   - MessageKit
   - RealmSwift
   - SDWebImage
@@ -188,6 +190,7 @@ SPEC REPOS:
     - InputBarAccessoryView
     - JGProgressHUD
     - leveldb-library
+    - lottie-ios
     - MessageKit
     - nanopb
     - PromisesObjC
@@ -218,6 +221,7 @@ SPEC CHECKSUMS:
   InputBarAccessoryView: 19953f486a23e846e9487099f92bbe3456e46ce5
   JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   MessageKit: 1f07618183be6d92b648ba7a384aafa097362a00
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -225,6 +229,6 @@ SPEC CHECKSUMS:
   RealmSwift: a0c30c1efc49e928a0a6f8fb141bb2629616d79b
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
 
-PODFILE CHECKSUM: 2a87b64900b2efb765cc3068c4de8d7e5554cd77
+PODFILE CHECKSUM: 8f42a03add6309a661ee00327346184f0570bec7
 
 COCOAPODS: 1.10.1
