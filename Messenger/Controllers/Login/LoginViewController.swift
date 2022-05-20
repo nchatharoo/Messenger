@@ -10,6 +10,7 @@ import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
 import JGProgressHUD
+import RiveRuntime
 
 final class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
@@ -52,17 +53,10 @@ final class LoginViewController: UIViewController, GIDSignInUIDelegate {
         return field
     }()
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "logo")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
     private let loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Log in", for: .normal)
-        button.backgroundColor = .link
+        button.backgroundColor = UIColor(red: 0.23, green: 0.19, blue: 0.90, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
@@ -82,6 +76,9 @@ final class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }()
     
     private var loginObserver: NSObjectProtocol?
+    
+    var avatarView: RiveView = RiveView()
+    var avatarVM: RiveViewModel = RiveViewModel(fileName: "avatar1")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,12 +102,15 @@ final class LoginViewController: UIViewController, GIDSignInUIDelegate {
         facebookButton.delegate = self
         
         view.addSubview(scrollView)
-        scrollView.addSubview(imageView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
         scrollView.addSubview(facebookButton)
         scrollView.addSubview(googleLogInButton)
+        
+        avatarVM.setView(avatarView)
+        scrollView.addSubview(avatarView)
+        
     }
     
     deinit {
@@ -124,9 +124,9 @@ final class LoginViewController: UIViewController, GIDSignInUIDelegate {
         scrollView.frame = view.bounds
         
         let size = scrollView.width/3
-        imageView.frame = CGRect(x: (scrollView.width-size)/2, y: 20, width: size, height: size)
+        avatarVM.riveView?.frame = CGRect(x: (scrollView.width-size)/2, y: 20, width: size, height: size)
         
-        emailField.frame = CGRect(x: 30, y: imageView.bottom+10, width: scrollView.width-60, height: 52)
+        emailField.frame = CGRect(x: 30, y: (avatarVM.riveView?.frame.height)! + 30, width: scrollView.width-60, height: 52)
         
         passwordField.frame = CGRect(x: 30, y: emailField.bottom+10, width: scrollView.width-60, height: 52)
         

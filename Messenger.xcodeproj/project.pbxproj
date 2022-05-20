@@ -32,6 +32,10 @@
 		8E95D02B2833D37700C920F8 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95D02A2833D37700C920F8 /* LocationPickerViewController.swift */; };
 		8EADE3AE28255F9400A1E052 /* ChatAppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EADE3AD28255F9400A1E052 /* ChatAppUser.swift */; };
 		8EADE3B02825611B00A1E052 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EADE3AF2825611B00A1E052 /* ConversationTableViewCell.swift */; };
+		8ED3E3DD2837F90300971861 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 8ED3E3DC2837F90300971861 /* RiveRuntime */; };
+		8ED3E3E02838047F00971861 /* message_icon.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8ED3E3DF2838039F00971861 /* message_icon.riv */; };
+		8ED3E3E22838063600971861 /* avatar2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8ED3E3E12838062C00971861 /* avatar2.riv */; };
+		8ED3E3E42838218900971861 /* avatar1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8ED3E3E32838215200971861 /* avatar1.riv */; };
 		9A47DC90E21957C9E814571D /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8EA1075E7B29E78EEDEEE2 /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +70,9 @@
 		8E95D02A2833D37700C920F8 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		8EADE3AD28255F9400A1E052 /* ChatAppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppUser.swift; sourceTree = "<group>"; };
 		8EADE3AF2825611B00A1E052 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		8ED3E3DF2838039F00971861 /* message_icon.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = message_icon.riv; sourceTree = "<group>"; };
+		8ED3E3E12838062C00971861 /* avatar2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = avatar2.riv; sourceTree = "<group>"; };
+		8ED3E3E32838215200971861 /* avatar1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = avatar1.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A47DC90E21957C9E814571D /* Pods_Messenger.framework in Frameworks */,
+				8ED3E3DD2837F90300971861 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +181,7 @@
 		8E6FBE5E2812A5DC00977589 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8ED3E3DE2838037B00971861 /* Rive */,
 				8E8B543C2837AFC60021A68D /* Lottie */,
 				8E6FBE522812A5C000977589 /* LaunchScreen.storyboard */,
 				8E6FBE4D2812A5BF00977589 /* Main.storyboard */,
@@ -204,6 +213,16 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
+		8ED3E3DE2838037B00971861 /* Rive */ = {
+			isa = PBXGroup;
+			children = (
+				8ED3E3E32838215200971861 /* avatar1.riv */,
+				8ED3E3E12838062C00971861 /* avatar2.riv */,
+				8ED3E3DF2838039F00971861 /* message_icon.riv */,
+			);
+			path = Rive;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +243,9 @@
 			dependencies = (
 			);
 			name = Messenger;
+			packageProductDependencies = (
+				8ED3E3DC2837F90300971861 /* RiveRuntime */,
+			);
 			productName = Messenger;
 			productReference = 8E6FBE442812A5BE00977589 /* Messenger.app */;
 			productType = "com.apple.product-type.application";
@@ -252,6 +274,9 @@
 				Base,
 			);
 			mainGroup = 8E6FBE3B2812A5BE00977589;
+			packageReferences = (
+				8ED3E3DB2837F90300971861 /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			productRefGroup = 8E6FBE452812A5BE00977589 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,8 +293,11 @@
 			files = (
 				8E8B543E2837AFD70021A68D /* errorAnimation.json in Resources */,
 				8E6FBE542812A5C000977589 /* LaunchScreen.storyboard in Resources */,
+				8ED3E3E42838218900971861 /* avatar1.riv in Resources */,
+				8ED3E3E22838063600971861 /* avatar2.riv in Resources */,
 				8E7D9FD7282CDDF600DE5BF4 /* GoogleService-Info.plist in Resources */,
 				8E6FBE512812A5C000977589 /* Assets.xcassets in Resources */,
+				8ED3E3E02838047F00971861 /* message_icon.riv in Resources */,
 				8E6FBE4F2812A5BF00977589 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,6 +631,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8ED3E3DB2837F90300971861 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8ED3E3DC2837F90300971861 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8ED3E3DB2837F90300971861 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8E6FBE3C2812A5BE00977589 /* Project object */;
 }

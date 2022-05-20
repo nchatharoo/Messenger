@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import JGProgressHUD
+import RiveRuntime
 
 final class RegisterViewController: UIViewController {
     
@@ -91,10 +92,13 @@ final class RegisterViewController: UIViewController {
         return imageView
     }()
     
+    var avatarView: RiveView = RiveView()
+    var avatarVM: RiveViewModel = RiveViewModel(fileName: "avatar2")
+
     private let registerButton: UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = UIColor(red: 0.90, green: 0.31, blue: 0.19, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
@@ -116,7 +120,11 @@ final class RegisterViewController: UIViewController {
         passwordField.delegate = self
         
         view.addSubview(scrollView)
-        scrollView.addSubview(imageView)
+        
+        avatarVM.setView(avatarView)
+        
+        scrollView.addSubview(avatarView)
+//        scrollView.addSubview(imageView)
         scrollView.addSubview(firstNameField)
         scrollView.addSubview(lastNameField)
         scrollView.addSubview(emailField)
@@ -135,10 +143,12 @@ final class RegisterViewController: UIViewController {
         scrollView.frame = view.bounds
         
         let size = scrollView.width/3
-        imageView.frame = CGRect(x: (scrollView.width-size)/2, y: 20, width: size, height: size)
-        imageView.layer.cornerRadius = imageView.width/2
+//        imageView.frame = CGRect(x: (scrollView.width-size)/2, y: 20, width: size, height: size)
+//        imageView.layer.cornerRadius = imageView.width/2
         
-        firstNameField.frame = CGRect(x: 30, y: imageView.bottom+10, width: scrollView.width-60, height: 52)
+        avatarVM.riveView?.frame = CGRect(x: (scrollView.width-size)/2, y: 20, width: size, height: size)
+
+        firstNameField.frame = CGRect(x: 30, y: (avatarVM.riveView?.frame.height)! + 30, width: scrollView.width-60, height: 52)
 
         lastNameField.frame = CGRect(x: 30, y: firstNameField.bottom+10, width: scrollView.width-60, height: 52)
 
