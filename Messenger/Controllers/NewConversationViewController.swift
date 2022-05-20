@@ -45,7 +45,7 @@ final class NewConversationViewController: UIViewController {
     }()
     
     private let errorAnimation: AnimationView = {
-        let lottieAnimation = AnimationView(name: "alerterror")
+        let lottieAnimation = AnimationView(name: "errorAnimation")
         lottieAnimation.contentMode = .scaleAspectFit
         lottieAnimation.loopMode = .loop
         lottieAnimation.isHidden = true
