@@ -251,10 +251,12 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         let actionSheet = UIAlertController(title: "Profile picture", message: "How would you like to select a picture ?", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "Take photo", style: .default, handler: { [weak self] _ in
-            self?.presentCamera()
+            guard let self = self else { return }
+            self.presentCamera()
         }))
         actionSheet.addAction(UIAlertAction(title: "Choose photo", style: .default, handler: { [weak self] _ in
-            self?.presentPhotoPicker()
+            guard let self = self else { return }
+            self.presentPhotoPicker()
         }))
         
         present(actionSheet, animated: true)

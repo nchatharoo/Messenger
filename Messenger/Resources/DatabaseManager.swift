@@ -56,7 +56,10 @@ extension DatabaseManager {
         database.child(user.safeEmail).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName
-        ], withCompletionBlock: { error, _ in
+            
+        ], withCompletionBlock: { [weak self] error, _ in
+            guard let self = self else { return }
+            
             guard error == nil else {
                 print("Failed to write to database")
                 completion(false)
@@ -350,6 +353,7 @@ extension DatabaseManager {
                 }
                 
                 var kind: MessageKind?
+                
                 if type == "photo" {
                     guard let urlImageURL = URL(string: content),
                           let placeholder = UIImage(systemName: "plus") else { return nil }

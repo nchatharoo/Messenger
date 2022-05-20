@@ -72,25 +72,27 @@ class ConversationsViewController: UIViewController {
         }
         
         DatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
+            guard let self = self else { return }
+
             switch result {
             case .success(let conversations):
                 guard !conversations.isEmpty else {
-                    self?.tableView.isHidden = true
-                    self?.noConversation.isHidden = false
+                    self.tableView.isHidden = true
+                    self.noConversation.isHidden = false
                     return
                 }
                 
-                self?.noConversation.isHidden = true
-                self?.tableView.isHidden = false
-                self?.conversations = conversations
+                self.noConversation.isHidden = true
+                self.tableView.isHidden = false
+                self.conversations = conversations
                 
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+                    self.tableView.reloadData()
                 }
                 
             case.failure(let error):
-                self?.tableView.isHidden = true
-                self?.noConversation.isHidden = false
+                self.tableView.isHidden = true
+                self.noConversation.isHidden = false
                 print(error)
             }
         })
@@ -217,7 +219,8 @@ extension ConversationsViewController: UITableViewDataSource, UITableViewDelegat
 
             DatabaseManager.shared.deleteConversation(conversationID: id, completion: { [weak self] success in
                 if success {
-                    self?.conversations.remove(at: indexPath.row)
+                    guard let self = self else { return }
+                    self.conversations.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .left)
                 }
             })
