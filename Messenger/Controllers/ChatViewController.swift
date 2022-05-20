@@ -506,7 +506,7 @@ extension ChatViewController: MessageCellDelegate {
             
             let vc = PhotoViewerViewController(with: imageURL)
             
-            self.navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
             
         case .video(let media):
             guard let videoURL = media.url else { return }
@@ -531,7 +531,7 @@ extension ChatViewController: MessageCellDelegate {
             let coordinates = location.location.coordinate
             let vc = LocationPickerViewController(coordinates: coordinates)
             vc.title = "Location"
-            self.navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
             
         default: break
         }
