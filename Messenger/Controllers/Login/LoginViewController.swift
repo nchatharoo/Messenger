@@ -11,7 +11,7 @@ import FBSDKLoginKit
 import GoogleSignIn
 import JGProgressHUD
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+final class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     private let spinner = JGProgressHUD(style: .dark)
     

@@ -11,7 +11,10 @@ import MessageKit
 import MapKit
 
 final class DatabaseManager {
+    
     static let shared = DatabaseManager()
+    
+    private init() {}
     
     private let database = Database.database().reference()
     
@@ -23,6 +26,7 @@ final class DatabaseManager {
 }
 
 extension DatabaseManager {
+    
     public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void) {
         self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value else {
@@ -118,19 +122,6 @@ extension DatabaseManager {
     public enum DatabaseError: Error {
         case failedToFetch
     }
-    
-    /*
-     [
-         [
-             "name":
-             "safe_email":
-         ],
-         [
-             "name":
-             "safe_email":
-         ],
-     ]
-     */
 }
 // MARK: Sending messages / conversations
 extension DatabaseManager {

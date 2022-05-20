@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import GoogleSignIn
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(
         _ application: UIApplication,
@@ -61,6 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                     sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                                     annotation: [:])
     }
+}
+
+    // MARK: GIDSignInDelegate
+
+extension AppDelegate: GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else {
@@ -130,4 +135,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         print("Google user was disconnected")
     }
 }
-

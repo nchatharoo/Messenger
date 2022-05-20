@@ -10,7 +10,7 @@ import FirebaseStorage
 
 final class StorageManager {
     static let shared = StorageManager()
-    
+    private init() {}
     private let storage = Storage.storage().reference()
     
     public typealias UploadPictureCompletion = (Result<String, Error>) -> Void

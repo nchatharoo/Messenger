@@ -8,7 +8,7 @@
 import UIKit
 import JGProgressHUD
 
-class NewConversationViewController: UIViewController {
+final class NewConversationViewController: UIViewController {
 
     public var completion: ((SearchResult) -> Void)?
     
@@ -174,9 +174,4 @@ extension NewConversationViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
-}
-
-struct SearchResult {
-    let name: String
-    let email: String
 }
