@@ -45,6 +45,9 @@ class ProfileViewController: UIViewController {
             actionSheet.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { [weak self] _ in
                 guard let self = self else { return }
                 
+                UserDefaults.standard.setValue(nil, forKey: "email")
+                UserDefaults.standard.setValue(nil, forKey: "name")
+                
                 //Log out Facebook
                 FBSDKLoginKit.LoginManager().logOut()
                 
