@@ -49,7 +49,6 @@ final class ConversationsViewController: UIViewController {
             
             self.startListeningForConversations()
         })
-        spinner.dismiss()
     }
     
     private func startListeningForConversations() {
@@ -84,6 +83,7 @@ final class ConversationsViewController: UIViewController {
                 self.noConversation.isHidden = false
                 print(error)
             }
+            self.spinner.dismiss()
         })
     }
     
