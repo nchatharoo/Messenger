@@ -7,6 +7,7 @@
 
 import UIKit
 import JGProgressHUD
+import Lottie
 
 final class NewConversationViewController: UIViewController {
 
@@ -34,7 +35,7 @@ final class NewConversationViewController: UIViewController {
     
     private let noResultsLabel: UILabel = {
         let label = UILabel()
-        label.text = "No results"
+        label.text = "No results, retry or cancel"
         label.textAlignment = .center
         label.textColor = .gray
         label.font = .systemFont(ofSize: 21, weight: .medium)
@@ -42,11 +43,20 @@ final class NewConversationViewController: UIViewController {
         return label
     }()
     
+    private let errorAnimation: AnimationView = {
+        let lottieAnimation = AnimationView(name: "alerterror")
+        lottieAnimation.contentMode = .scaleAspectFit
+        lottieAnimation.loopMode = .loop
+        lottieAnimation.isHidden = true
+        return lottieAnimation
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(noResultsLabel)
         view.addSubview(tableView)
-        
+        view.addSubview(errorAnimation)
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -61,7 +71,8 @@ final class NewConversationViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
-        noResultsLabel.frame = CGRect(x: view.width/4, y: (view.height-200)/2, width: view.width/2, height: 100)
+        noResultsLabel.frame = CGRect(x: view.width/4, y: searchBar.bottom+20, width: view.width/2, height: 100)
+        errorAnimation.frame = CGRect(x: view.width/4, y: noResultsLabel.bottom+20, width: view.width/2, height: errorAnimation.width)
     }
                                                             
     @objc private func dismissSelf() {
@@ -138,12 +149,18 @@ extension NewConversationViewController: UISearchBarDelegate {
     
     func updateUI() {
         if results.isEmpty {
-           noResultsLabel.isHidden = false
-           tableView.isHidden = true
+            noResultsLabel.isHidden = false
+            errorAnimation.isHidden = false
+            errorAnimation.play()
+
+            tableView.isHidden = true
         } else {
-           noResultsLabel.isHidden = true
-           tableView.isHidden = false
-           tableView.reloadData()
+            noResultsLabel.isHidden = true
+            errorAnimation.isHidden = true
+            errorAnimation.stop()
+
+            tableView.isHidden = false
+            tableView.reloadData()
         }
     }
 }
