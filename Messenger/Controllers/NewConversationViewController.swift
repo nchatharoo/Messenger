@@ -37,6 +37,7 @@ final class NewConversationViewController: UIViewController {
         let label = UILabel()
         label.text = "No results, retry or cancel"
         label.textAlignment = .center
+        label.numberOfLines = 0
         label.textColor = .gray
         label.font = .systemFont(ofSize: 21, weight: .medium)
         label.isHidden = true
