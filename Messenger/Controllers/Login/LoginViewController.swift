@@ -159,7 +159,7 @@ final class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
             
             guard let result = authResult, error == nil else {
-                print("Faild login user with  email \(email)")
+                print("Failed login user with  email \(email)")
                 return
             }
             

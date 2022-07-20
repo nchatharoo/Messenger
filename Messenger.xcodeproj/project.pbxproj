@@ -36,6 +36,8 @@
 		8ED3E3E02838047F00971861 /* message_icon.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8ED3E3DF2838039F00971861 /* message_icon.riv */; };
 		8ED3E3E22838063600971861 /* avatar2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8ED3E3E12838062C00971861 /* avatar2.riv */; };
 		8ED3E3E42838218900971861 /* avatar1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8ED3E3E32838215200971861 /* avatar1.riv */; };
+		8ED5E7DD288838E0002A64DC /* emojis.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8ED5E7DC288838BE002A64DC /* emojis.riv */; };
+		8ED5E7DF28883A05002A64DC /* EmojiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5E7DE28883A05002A64DC /* EmojiViewController.swift */; };
 		9A47DC90E21957C9E814571D /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8EA1075E7B29E78EEDEEE2 /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		8ED3E3DF2838039F00971861 /* message_icon.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = message_icon.riv; sourceTree = "<group>"; };
 		8ED3E3E12838062C00971861 /* avatar2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = avatar2.riv; sourceTree = "<group>"; };
 		8ED3E3E32838215200971861 /* avatar1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = avatar1.riv; sourceTree = "<group>"; };
+		8ED5E7DC288838BE002A64DC /* emojis.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = emojis.riv; sourceTree = "<group>"; };
+		8ED5E7DE28883A05002A64DC /* EmojiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,7 @@
 				8E6FBE6B2812A72300977589 /* ProfileViewController.swift */,
 				8E8D85DF2821667A00417BB5 /* ChatViewController.swift */,
 				8E95D02A2833D37700C920F8 /* LocationPickerViewController.swift */,
+				8ED5E7DE28883A05002A64DC /* EmojiViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 		8ED3E3DE2838037B00971861 /* Rive */ = {
 			isa = PBXGroup;
 			children = (
+				8ED5E7DC288838BE002A64DC /* emojis.riv */,
 				8ED3E3E32838215200971861 /* avatar1.riv */,
 				8ED3E3E12838062C00971861 /* avatar2.riv */,
 				8ED3E3DF2838039F00971861 /* message_icon.riv */,
@@ -297,6 +303,7 @@
 				8ED3E3E22838063600971861 /* avatar2.riv in Resources */,
 				8E7D9FD7282CDDF600DE5BF4 /* GoogleService-Info.plist in Resources */,
 				8E6FBE512812A5C000977589 /* Assets.xcassets in Resources */,
+				8ED5E7DD288838E0002A64DC /* emojis.riv in Resources */,
 				8ED3E3E02838047F00971861 /* message_icon.riv in Resources */,
 				8E6FBE4F2812A5BF00977589 /* Main.storyboard in Resources */,
 			);
@@ -397,6 +404,7 @@
 				8E6FBE482812A5BF00977589 /* AppDelegate.swift in Sources */,
 				8E6FBE6C2812A72300977589 /* ProfileViewController.swift in Sources */,
 				8E641C04282E4D4600641C97 /* NewConversationCell.swift in Sources */,
+				8ED5E7DF28883A05002A64DC /* EmojiViewController.swift in Sources */,
 				8E6FBE4A2812A5BF00977589 /* SceneDelegate.swift in Sources */,
 				8E8B5435283793E90021A68D /* Conversation.swift in Sources */,
 				8E8B543B2837949B0021A68D /* ProfileViewModel.swift in Sources */,

@@ -11,6 +11,7 @@ import InputBarAccessoryView
 import AVFoundation
 import AVKit
 import CoreLocation
+import RiveRuntime
 
 final class ChatViewController: MessagesViewController {
     
@@ -40,6 +41,9 @@ final class ChatViewController: MessagesViewController {
                       displayName: "Me")
     }()
     
+    var emojiView: RiveView = RiveView()
+    var emojiVM: RiveViewModel = RiveViewModel(fileName: "emojis")
+    
     init(with email: String, id: String?) {
         self.otherUserEmail = email
         self.conversationID = id
@@ -62,15 +66,27 @@ final class ChatViewController: MessagesViewController {
     }
     
     private func setupInputButton() {
-        let button = InputBarButtonItem()
-        button.setSize(CGSize(width: 35, height: 35), animated: false)
-        button.setImage(UIImage(systemName: "paperclip"), for: .normal)
-        button.onTouchUpInside { [weak self] _ in
-            self?.presentInputActionSheet()
-        }
         
-        messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
-        messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
+        let items = [
+            makeButton(named: "paperclip")
+                .onTouchUpInside { [weak self] _ in
+                    self?.presentInputActionSheet()
+                },
+                
+            makeButton(named: "heart.fill")
+                .onTouchUpInside { [weak self] _ in
+                self?.presentEmojis()
+            }
+        ]
+        
+        messageInputBar.setStackViewItems(items, forStack: .bottom, animated: false)
+    }
+    
+    private func makeButton(named: String) -> InputBarButtonItem {
+        return InputBarButtonItem().configure {
+            $0.image = UIImage(systemName: named)?.withRenderingMode(.alwaysTemplate)
+            $0.setSize(CGSize(width: 35, height: 35), animated: false)
+        }.onTouchUpInside { _ in }
     }
     
     private func presentInputActionSheet() {
@@ -84,8 +100,8 @@ final class ChatViewController: MessagesViewController {
             self?.presentVideoInputActionSheet()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Audio", style: .default, handler: { [weak self] result in
-            
+        actionSheet.addAction(UIAlertAction(title: "Emoji", style: .default, handler: { [weak self] result in
+            self?.presentEmojis()
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Location", style: .default, handler: { [weak self] result in
@@ -96,6 +112,12 @@ final class ChatViewController: MessagesViewController {
         }))
         
         present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func presentEmojis() {
+        let vc = EmojiViewController()
+        vc.title = "Emojis"
+        navigationController?.present(vc, animated: true)
     }
     
     private func presentLocationPicker() {
